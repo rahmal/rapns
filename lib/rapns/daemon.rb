@@ -26,7 +26,7 @@ module Rapns
 
     def self.start(config)
       self.config = config
-      self.logger = Logger.new(STDOUT)
+      self.logger = Logger.new(:foreground => config.foreground, :airbrake_notify => config.airbrake_notify)
       setup_signal_hooks
 
       unless config.foreground
