@@ -80,6 +80,8 @@ module Rapns
       end
 
       def write_data(data)
+        STDERR.puts "\n\nDATA:\n#{data.inspect}\n\n"
+        Rails.logger.info "\n\nDATA:\n#{data.inspect}\n\n"        
         @ssl_socket.write(data)
         @ssl_socket.flush
         written
